@@ -15,5 +15,10 @@ December 3, 2021
 # Goals
 - start Advent of Code day 2 in python
 - look into ZTM
+- (bonus) start Advent of Code day 3 in Python
 
 # Accomplished
+
+- finished Advent of Code day 2 in python
+- Looked into ZTM
+- Started Advent of Code day 3 python
