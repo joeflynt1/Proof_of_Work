@@ -10,6 +10,7 @@ December 2, 2021
 - made repo
 - finished python advent of code day 1
 - looked into CS50
+
 December 3, 2021
 
 # Goals
@@ -22,3 +23,9 @@ December 3, 2021
 - finished Advent of Code day 2 in python
 - Looked into ZTM
 - Started Advent of Code day 3 python
+
+December 3, 2021
+
+# Accomplished
+
+- finished Advent of Code day 2 in python
