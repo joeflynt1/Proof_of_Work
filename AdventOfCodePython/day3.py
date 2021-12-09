@@ -1,4 +1,4 @@
-
+# NOTE: come back and refactor solution
 binaryList = []
 with open("AdventOfCodePython\PuzzleInputs\day3.txt") as f:
     binaryList = f.readlines()
@@ -30,7 +30,8 @@ binaryList2 = []
 for binary in binaryList:
     binaryList2.append(binary)
     
-
+CO2 = ""
+OGR = ""
 
 for i in range(binarySize):
     zeroTotal = 0
@@ -57,6 +58,8 @@ for i in range(binarySize):
 
 
     for binary in binaryList:
+        if( len(binaryList) == 1):
+            OGR = binary
         print("{}".format(binary))
     zeroTotal = 0
     oneTotal = 0
@@ -79,4 +82,15 @@ for i in range(binarySize):
         print("CO2")
         for binary in binaryList2:
             print("{}".format(binary))
-    
+            CO2 = binary
+print("CO2 {} ---- OGR {}".format(CO2, OGR))
+CO2rating = 0
+OGRrating = 0
+for i in range(binarySize):
+    if( int(CO2[i] ) == 1 ):
+        CO2rating += (2 ** (binarySize-i-1))
+    if( int(OGR[i] ) == 1 ):
+        OGRrating += (2 ** (binarySize-i-1))
+print ("CO2 rating {}".format(CO2rating))
+print ("OGR rating {}".format(OGRrating))
+print ("total {}".format(CO2rating*OGRrating))
