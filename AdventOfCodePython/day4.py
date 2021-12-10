@@ -38,7 +38,7 @@ def readFile():
         return bingoCards
             
 # go through list bingoCards with
-# bingo numbers. where a card 
+# bingo numbers. if a card 
 # contains the bingo number
 # replace that number with 
 # -1. if there is a whole
@@ -47,8 +47,13 @@ def readFile():
 # check for the winning card at 
 # the end of each iteration
 def start(bingoCards, bingoNumbers):
+    cardTotal = len(bingoCards)
+    winCardTotal = []
     for x in bingoNumbers:
-        for card in bingoCards:
+        # reversed is needed for pt 2. This allows it to remove the card
+        # and not have to worry about skipping the skipping next iterator 
+        # in the process
+        for card in reversed(bingoCards):
             for row in card:
                 for num in row:
                     # if num is equal to x put a "chip" (-1) on it
@@ -56,9 +61,16 @@ def start(bingoCards, bingoNumbers):
                         xIndex = row.index(x)
                         row[xIndex] = -1
                         if hasAwinner(card, row, xIndex ) == True:
-                            # calculate score of winner
-                            return calculateScore(card, x)
-    return 0 # No winner, but this should be impossible
+                            # if the card has one remove it
+                            bingoCards.remove(card)
+                            # once their is no cards remaining in bingoCards
+                            # the most recent card removed is the last winner
+                            # so performing necessary calculations
+                            if len(bingoCards) == 0:
+                                xIndex = bingoNumbers[bingoNumbers.index(x)-1]
+                                print(card)
+                                return calculateScore(card, x)
+    return 0 # No last winner, but this should not occur
 
 def hasAwinner(card, row, xIndex):
     # search through the rows to see 
